@@ -1,11 +1,11 @@
 ---
 development: &development
   adapter: postgresql
-  database: covid_exchange_development
-  username:
-  password:
-  host:     localhost
-  port:     5432
+  database: covidledger_development
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host:     <%= ENV['DB_HOST'] %>
+  port:     <%= ENV['DB_PORT'] %>
   schema_search_path: public
   min_messages: warning
 
@@ -14,13 +14,12 @@ development: &development
 # Do not set this db to the same as development or production.
 test:
   <<: *development
-  database: covid_exchange_test
+  database: covidledger_test
 
 production:
   <<: *development
-  database: covid_exchange_production
+  database: <%= ENV['DB_DATABASE'] %>
 
 staging:
   <<: *development
-  database: covid_exchange_staging
-
+  database: covidledger_staging

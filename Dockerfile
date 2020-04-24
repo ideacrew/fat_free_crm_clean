@@ -4,11 +4,11 @@
 # docker-compose up
 # docker-compose exec web bundle exec rake db:create db:schema:load ffcrm:demo:load
 
-FROM ruby:2.6.5
+FROM ruby:2.6.5 AS covidledger_base
 
 LABEL author="Ideacrew"
 
-ENV HOME /home/app
+ENV HOME /covidledger
 
 RUN mkdir -p $HOME
 
@@ -16,42 +16,29 @@ WORKDIR $HOME
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 
-ADD . $HOME
+# Configure bundler and PATH
+ENV LANG=C.UTF-8 \
+    GEM_HOME=/bundle \
+    BUNDLE_JOBS=4 \
+    BUNDLE_RETRY=3
+ENV BUNDLE_PATH $GEM_HOME
+ENV BUNDLE_APP_CONFIG=$BUNDLE_PATH \
+    BUNDLE_BIN=$BUNDLE_PATH/bin
+ENV PATH /covidledger/bin:$BUNDLE_BIN:$PATH
+
+COPY . $HOME
 RUN apt-get update && \
-  apt-get -yq dist-upgrade && \
-	apt-get install -y imagemagick tzdata build-essential nodejs && \
-	apt-get autoremove -y && \
-	cp config/database.postgres.docker.yml config/database.yml && \
-  gem install bundler:2.1.2 && \
-  npm install --global yarn && \
-  yarn install && \
-  bundle config set deployment 'true' && \
-	bundle install && \
-	bundle exec rails assets:precompile
+    apt-get -yq dist-upgrade && \
+    apt-get install -y imagemagick tzdata build-essential nodejs && \
+    apt-get autoremove -y && \ 
+    cp config/database.postgres.docker.yml config/database.yml && \
+    gem install bundler:2.1.2 && \
+    npm install --global yarn && \
+    yarn install --check-files && \
+    bundle config set deployment 'true' && \
+    bundle install 
 
-CMD ["bundle","exec","rails","s","-b","0.0.0.0"]
+FROM covidledger_base as covidledger
 
-EXPOSE 3000
+RUN bundle exec rails assets:precompile
 
-# # Usage:
-# # docker volume create pgdata
-# # docker volume create gems
-# # docker-compose up
-# # docker-compose exec web bundle exec rake db:create db:schema:load ffcrm:demo:load assets:precompile
-
-# FROM phusion/passenger-ruby24
-# MAINTAINER Steve Kenworthy
-
-# ENV HOME /home/app
-
-# ADD . /home/app
-# WORKDIR /home/app
-
-# RUN apt-get update \
-#   && apt-get install -y imagemagick firefox tzdata \
-#   && apt-get autoremove -y \
-#   && cp config/database.postgres.docker.yml config/database.yml \
-#   && chown -R app:app /home/app \
-#   && rm -f /etc/service/nginx/down /etc/nginx/sites-enabled/default \
-#   && cp .docker/nginx/sites-enabled/ffcrm.conf /etc/nginx/sites-enabled/ffcrm.conf \
-#   && bundle install --deployment

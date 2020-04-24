@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/bill-transue/fat_free_crm.git
-  revision: b4cc2a7eae6a9731ff62e58efb8b644963c4e572
+  revision: bffb832afcf4c2dd60a33793027ff191c6f53887
   specs:
     fat_free_crm (0.19.0)
       activemodel-serializers-xml
@@ -118,6 +118,12 @@ GEM
     cancancan (3.1.0)
     chronic (0.10.2)
     climate_control (0.2.0)
+    coffee-rails (5.0.0)
+      coffee-script (>= 2.2.0)
+      railties (>= 5.2.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.6)
     countries (3.0.1)
@@ -142,6 +148,7 @@ GEM
     dynamic_form (1.1.4)
     email_reply_parser_ffcrm (0.5.0)
     erubi (1.9.0)
+    execjs (2.7.0)
     ffaker (2.14.0)
     ffi (1.12.2)
     font-awesome-rails (4.7.0.5)
@@ -354,6 +361,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
+  coffee-rails
   fat_free_crm!
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)

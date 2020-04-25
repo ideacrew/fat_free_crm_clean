@@ -29,7 +29,7 @@ ENV PATH /covidledger/bin:$BUNDLE_BIN:$PATH
 COPY . $HOME
 RUN apt-get update && \
     apt-get -yq dist-upgrade && \
-    apt-get install -y imagemagick tzdata build-essential nodejs && \
+    apt-get install -y imagemagick tzdata build-essential nodejs vim && \
     apt-get autoremove -y && \ 
     cp config/database.postgres.docker.yml config/database.yml && \
     gem install bundler:2.1.2 && \

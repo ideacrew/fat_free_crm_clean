@@ -30,6 +30,8 @@ Rails.application.configure do
 
   config.active_record.belongs_to_required_by_default = false
 
+  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 

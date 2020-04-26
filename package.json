@@ -1,5 +1,5 @@
 {
-  "name": "covid_exchange",
+  "name": "covid_most",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",

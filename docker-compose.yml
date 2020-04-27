@@ -1,29 +1,28 @@
 version: '3.4'
 services:
-  web:
+  app:
     build: 
       context: .
-      target: covidledger_base
-    image: covidledger:dev-0.0.1
+      target: covid_most_base
+      dockerfile: ./.docker/development/Dockerfile
+    image: covid_most:dev-0.0.1
     links:
       - db
     ports:
       - "3000:3000"
-      - "8080:80"
     volumes:
-      - .:/covidledger:cached
-      - rails_cache:/covidledger/tmp/cache
+      - .:/covid_most:cached
+      - rails_cache:/covid_most/tmp/cache
       - bundle:/bundle
-      - node_modules:/covidledger/node_modules
-      - packs:/covidledger/public/packs
+      - node_modules:/covid_most/node_modules
+      - packs:/covid_most/public/packs
     environment:
-      RAILS_ENV: 'development'
-      PASSENGER_APP_ENV: 'development'
-      DB_DATABASE: 'covidledger_development'
-      DB_USERNAME: 'covidledger'
-      DB_PASSWORD: 'clpostgres'
-      DB_HOST: 'db'
-      DB_PORT: 5432
+      - RAILS_ENV=${RAILS_ENV:-development}
+      - DB_DATABASE=covid_most_development
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres_local
+      - DB_HOST=db
+      - DB_PORT=5432
     command: bash -c "rm -f tmp/pids/server.pid && mkdir -p tmp/pids && yarn install --check-files && bundle exec rails assets:precompile && bundle exec puma -C config/puma.rb"
   db:
     image: postgres:12
@@ -33,7 +32,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: 'postgres_local'
+      - POSTGRES_PASSWORD=postgres_local
 volumes:
   pgdata: 
   rails_cache:

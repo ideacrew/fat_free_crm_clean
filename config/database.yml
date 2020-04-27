@@ -1,7 +1,7 @@
 ---
 development: &development
   adapter: postgresql
-  database: covidledger_development
+  database: covid_most_development
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
   host:     <%= ENV['DB_HOST'] %>
@@ -14,7 +14,7 @@ development: &development
 # Do not set this db to the same as development or production.
 test:
   <<: *development
-  database: covidledger_test
+  database: covid_most_test
 
 production:
   <<: *development
@@ -22,4 +22,4 @@ production:
 
 staging:
   <<: *development
-  database: covidledger_staging
+  database: covid_most_staging

@@ -16,8 +16,4 @@ class EncryptedFieldInput < SimpleForm::Inputs::CollectionSelectInput
   def cf
     @cf ||= EncryptedField.find_by(name: attribute_name)
   end
-
-  def lookup_values_for_text_field
-    lookup_values.map(&:first).join(', ')
-  end
 end

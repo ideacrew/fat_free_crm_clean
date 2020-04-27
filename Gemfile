@@ -29,6 +29,7 @@ gem 'coffee-rails'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'fat_free_crm', :git => 'https://github.com/ideacrew/fat_free_crm.git', branch: 'bootstrap-integration'
+gem 'symmetric-encryption'
 
 gem 'simplecov', require: false, group: :test
 

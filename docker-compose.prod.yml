@@ -48,6 +48,12 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_HOST=${DB_HOST}
       - DB_PORT=5432
+      - ACTION_MAILER_HOST=${ACTION_MAILER_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_DOMAIN=${SMTP_DOMAIN}
+      - SMTP_USERNAME=${SMTP_USERNAME}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
     secrets:
       - master_key
       - credentials
@@ -55,7 +61,6 @@ services:
                       mkdir -p tmp/pids && 
                       cat /run/secrets/master_key > /covid_most/config/master.key &&
                       cat /run/secrets/credentials > /covid_most/config/credentials.yml.enc &&
-                      bundle exec rake assets:precompile &&
                       bundle exec puma -C config/puma.rb"
 
   db:

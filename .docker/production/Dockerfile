@@ -52,14 +52,12 @@ RUN export DB_DATABASE=$DB_DATABASE && \
     export DB_USERNAME=$DB_USERNAME && \
     export DB_PASSWORD=$DB_PASSWORD && \
     export DB_HOST=$DB_HOST && \
-    env && \
     bundle exec rake assets:precompile && \
     unset DB_DATABASE && \
     unset DB_USERNAME && \
     unset DB_PASSWORD && \
     unset DB_HOST
 
-RUN ls -tlr /covid_most
 RUN rm -f /app/config/master.key && rm -f /app/config/credentials.yml.enc
 
 

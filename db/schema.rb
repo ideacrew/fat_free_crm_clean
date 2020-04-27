@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_01_07_082701) do
+ActiveRecord::Schema.define(version: 2020_04_26_143925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -195,6 +195,19 @@ ActiveRecord::Schema.define(version: 2018_01_07_082701) do
     t.datetime "updated_at"
     t.string "state", limit: 16, default: "Expanded", null: false
     t.index ["mediator_id", "mediator_type"], name: "index_emails_on_mediator_id_and_mediator_type"
+  end
+
+  create_table "encrypted_fields", force: :cascade do |t|
+    t.integer "field_group_id"
+    t.string "as"
+    t.string "label"
+    t.string "encrypted_value"
+    t.string "salt"
+    t.string "mask"
+    t.boolean "required"
+    t.boolean "disabled"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "field_groups", id: :serial, force: :cascade do |t|

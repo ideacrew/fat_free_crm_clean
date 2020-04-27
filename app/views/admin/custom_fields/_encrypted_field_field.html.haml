@@ -1,0 +1,22 @@
+%table
+  %tr
+    %td
+      .label.top.req
+        = image_tag "info_tiny.png", :title => t('field_types.lookup.lookup_class_name.hint'), :class => "tooltip-icon"
+        = f.label :salt, 'Salt'
+      = f.text_field :salt
+    %td= spacer
+    %td
+      .label.top.req
+        = image_tag "info_tiny.png", :title => t('field_types.lookup.lookup_field.hint'), :class => "tooltip-icon"
+        = f.label :mask, "Mask (*s hide, 'x's show)"
+      = f.text_field :mask, placeholder: '******xxxx'
+
+  %tr
+    %td
+      .label.top
+      = f.check_box :required
+      = f.label :required
+      %br
+      = f.check_box :disabled
+      = f.label :disabled

@@ -28,7 +28,7 @@ gem 'coffee-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-gem 'fat_free_crm', :git => 'https://github.com/ideacrew/fat_free_crm.git'
+gem 'fat_free_crm', :git => 'https://github.com/ideacrew/fat_free_crm.git', branch: 'bootstrap-integration'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

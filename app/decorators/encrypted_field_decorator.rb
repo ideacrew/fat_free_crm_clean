@@ -6,11 +6,13 @@ module EncryptedFieldDecorator
 end
 
 class Contact
-  def cf_ssn=(value) # :nodoc
-    super SymmetricEncryption.encrypt(value)
-  end
+  Field.joins(:field_group).where(as: 'encrypted_field' , field_groups: { klass_name: 'Contact' }).each do |field|
+    define_method "#{field.name}=" do |value|
+      write_attribute field.name, SymmetricEncryption.encrypt(value)
+    end
 
-  def cf_ssn
-    SymmetricEncryption.decrypt(super).gsub(/.(?=.{4})/,'*')
+    define_method field.name do
+      SymmetricEncryption.decrypt(read_attribute(field.name))&.gsub(/.(?=.{4})/,'*')
+    end
   end
 end

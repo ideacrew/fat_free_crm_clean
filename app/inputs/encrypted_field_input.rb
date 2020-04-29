@@ -1,5 +1,4 @@
 class EncryptedFieldInput < SimpleForm::Inputs::CollectionSelectInput
-
   # Use chosen to render a lookup widget
   #------------------------------------------------------------------------------
   def input

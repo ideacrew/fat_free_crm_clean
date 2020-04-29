@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe EncryptedField, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "a new instance" do
+    it 'has a mask writter/accessor' do
+      subject.mask = '*****xxxx'
+      expect(subject.mask).to eql('*****xxxx')
+    end
+  end
 end

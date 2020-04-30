@@ -32,6 +32,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     environment:
+      - POSTGRES_DB=covid_most_development
       - POSTGRES_PASSWORD=postgres_local
 volumes:
   pgdata: 

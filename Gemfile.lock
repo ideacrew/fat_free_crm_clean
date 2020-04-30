@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/ideacrew/fat_free_crm.git
-  revision: d8475633d929f334b801697b0e4ec4b5f75b7ac5
+  revision: c5ef85900a8458389360c19f20cd255f1cbd077b
+  branch: bootstrap-integration
   specs:
     fat_free_crm (0.19.0)
       activemodel-serializers-xml

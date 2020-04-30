@@ -1,0 +1,18 @@
+= f.fields_for :settings, @field do |s|
+
+  %table
+    %tr
+      %td
+        .label.top.req
+          = image_tag "info_tiny.png", :title => t('field_types.lookup.lookup_field.hint'), :class => "tooltip-icon"
+          = s.label :mask, "Mask (*s hide, 'x's show)"
+        = s.text_field :mask, placeholder: '******xxxx'
+
+    %tr
+      %td
+        .label.top
+        = f.check_box :required
+        = f.label :required
+        %br
+        = f.check_box :disabled
+        = f.label :disabled

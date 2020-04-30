@@ -29,11 +29,16 @@ gem 'coffee-rails'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'fat_free_crm', :git => 'https://github.com/ideacrew/fat_free_crm.git', branch: 'bootstrap-integration'
+gem 'symmetric-encryption'
+
+gem 'simplecov', require: false, group: :test
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'capybara'
   gem 'rspec-rails'
+  gem 'rubocop'
 end
 
 group :development do

@@ -30,8 +30,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'fat_free_crm', :git => 'https://github.com/ideacrew/fat_free_crm.git', branch: 'bootstrap-integration'
 gem 'symmetric-encryption'
-
 gem 'simplecov', require: false, group: :test
+gem 'resource_registry',  git:  'https://github.com/ideacrew/resource_registry.git', branch: 'branch_0.7.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

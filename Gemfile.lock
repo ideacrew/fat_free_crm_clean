@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ideacrew/fat_free_crm.git
-  revision: e0d97e98bd0c374b9a78c8d40b08151a2eb7f974
+  revision: e39fb92bc242e63f336c08fde8ae259071973bbc
   branch: bootstrap-integration
   specs:
     fat_free_crm (0.19.0)
@@ -287,7 +287,7 @@ GEM
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2020.0425)
-    mimemagic (0.3.4)
+    mimemagic (0.3.5)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.0)

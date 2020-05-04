@@ -1,4 +1,4 @@
-class EncryptedField < CustomField
+class EncryptedField < FatFreeCrm::CustomField
   Settings = %w(mask lookup_class_name)
 
   # Renders the value

@@ -1,7 +1,13 @@
+puts FatFreeCrm::Permissions.inspect
+puts FatFreeCrm::CommentExtensions.inspect
+puts FatFreeCrm::Fields.inspect
+puts FatFreeCrm::Exportable.inspect
+puts FatFreeCrm::Sortable.inspect
+
 module EncryptedFieldDecorator
   class Engine < ::Rails::Engine
     paths["app/models"] << "app/models/fields/"
-    Field.register(:as => 'encrypted_field', :klass => 'EncryptedField', :type => 'string')
+    FatFreeCrm::Field.register(:as => 'encrypted_field', :klass => 'EncryptedField', :type => 'string')
   end
 end
 
@@ -9,8 +15,8 @@ module EncryptedFieldAccessors
   extend ActiveSupport::Concern
 
   included do
-    if ActiveRecord::Base.connection.table_exists? 'fields'
-      Field.joins(:field_group).where(as: 'encrypted_field' , field_groups: { klass_name: 'Contact' }).each do |field|
+    if ActiveRecord::Base.connection.table_exists? 'fat_free_crm_fields'
+      FatFreeCrm::Field.joins(:field_group).where(as: 'encrypted_field' , fat_free_crm_field_groups: { klass_name: 'FatFreeCrm::Contact' }).each do |field|
         define_method "#{field.name}=" do |value|
           write_attribute field.name, SymmetricEncryption.encrypt(value)
         end
@@ -23,22 +29,22 @@ module EncryptedFieldAccessors
   end
 end
 
-class Account
+class FatFreeCrm::Account
   include EncryptedFieldAccessors
 end
 
-class Campagin
+class FatFreeCrm::Campaign
   include EncryptedFieldAccessors
 end
 
-class Contact
+class FatFreeCrm::Contact
   include EncryptedFieldAccessors
 end
 
-class Lead
+class FatFreeCrm::Lead
   include EncryptedFieldAccessors
 end
 
-class Opportunity
+class FatFreeCrm::Opportunity
   include EncryptedFieldAccessors
 end

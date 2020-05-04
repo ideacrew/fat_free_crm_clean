@@ -21,7 +21,7 @@ RSpec.describe EncryptedFieldDecorator::Engine, type: :model do
   end
 
   before do
-    allow(Field).to receive(:joins).and_return(double(where: [field]))
+    allow(FatFreeCrm::Field).to receive(:joins).and_return(double(where: [field]))
     allow(test_class).to receive(:write_attribute).with(any_args)
   end
 

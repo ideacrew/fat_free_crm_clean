@@ -28,10 +28,49 @@ gem 'coffee-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'call_center', git:  'https://github.com/ideacrew/call_center.git', branch: 'master'
 gem 'fat_free_crm', :git => 'https://github.com/ideacrew/fat_free_crm.git', branch: 'bootstrap-integration'
 gem 'symmetric-encryption'
 
 gem 'simplecov', require: false, group: :test
+
+gem 'cancancan'
+gem 'devise'
+gem 'devise-i18n'
+gem 'devise-encryptable'
+gem 'rails-i18n'
+gem 'rails-observers'
+gem 'active_model_serializers'
+gem 'activemodel-serializers-xml'
+gem 'sprockets-rails'
+gem 'responders'
+gem 'jquery-rails'
+gem 'jquery-migrate-rails'
+gem 'jquery-ui-rails'
+gem 'select2-rails'
+gem 'simple_form'
+gem 'will_paginate'
+gem 'paperclip'
+gem 'paper_trail'
+gem 'acts_as_commentable'
+gem 'acts-as-taggable-on'
+gem 'dynamic_form'
+gem 'haml'
+gem 'sass'
+gem 'acts_as_list'
+gem 'ffaker', '>= 2'
+gem 'font-awesome-rails'
+gem 'premailer'
+gem 'nokogiri'
+gem 'responds_to_parent'
+gem 'rails3-jquery-autocomplete'
+gem 'thor'
+gem 'rails_autolink'
+gem 'coffee-script-source'
+gem 'country_select'
+gem 'ransack', '>= 1.6.2'
+gem 'ransack_ui', '~> 1.3', '>= 1.3.1'
+gem 'ransack_chronic'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -39,6 +78,9 @@ group :development, :test do
   gem 'capybara'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'pry-stack_explorer'
 end
 
 group :development do

@@ -12,7 +12,7 @@ RUN mkdir -p $HOME
 
 WORKDIR $HOME
 
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 
 # Configure bundler and PATH
 ENV LANG=C.UTF-8 \
@@ -58,7 +58,7 @@ RUN export DB_DATABASE=$DB_DATABASE && \
     unset DB_PASSWORD && \
     unset DB_HOST
 
-RUN rm -f /app/config/master.key && rm -f /app/config/credentials.yml.enc
+RUN rm -f /covid_most/config/master.key && rm -f /covid_most/config/credentials.yml.enc
 
 
 ########################

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module BlueTrace
-  class EncounterHistory
+  class EncounterHistory < Dry::Struct
 
     attribute :id,          Type::Strict::String.meta(omittable: false)
     attribute :contact_id,  Type::Strict::String.meta(omittable: false)

@@ -10,7 +10,7 @@ module EncryptedFieldAccessors
 
   included do
     if ActiveRecord::Base.connection.table_exists? 'fields'
-      Field.joins(:field_group).where(as: 'encrypted_field' , field_groups: { klass_name: 'Contact' }).each do |field|
+      Field.joins(:field_group).where(as: 'encrypted_field' , field_groups: { klass_name: name }).each do |field|
         define_method "#{field.name}=" do |value|
           write_attribute field.name, SymmetricEncryption.encrypt(value)
         end

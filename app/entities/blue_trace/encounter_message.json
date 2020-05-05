@@ -1,0 +1,33 @@
+// UserID
+// Validity Period (OpenTrace stores data for 21 days)
+
+// 1. Decrypt TempID for each encounter in the uploaded encounter history
+// 2. Verify each encounter timestanmp for each TempID falls within validity period
+// 3. Filter for close contacts based on epidemiological parameters:
+// 3.a Time of exposure: length of continous cluster of encounters
+// 3.b Distance: received signal strength reading
+
+
+{
+// TempID of the Central
+"id": "Fj5jfbTtDySw8JoVsCmeul0wsoIcJKRPV0HtEFUlNvNg6C3wyGj8R1utPbw+Iz8tqAdpbxR1nSvr+ILXPG==",
+// Device model of the Central, to calibrate distance estimates
+"mc": "iPhone X",
+// Received Signal Strength Indicator (RSSI) as measured by the Central of the Peripheral
+"rs": -60,
+// Organisation code indicating the country and health authority with which the Central is enrolled
+"o": "SG_MOH",
+// Version of the BlueTrace protocol that the Central is running
+"v": 2
+}
+
+{
+ // TempID of the Peripheral
+"id": "Fj5jfbTtDySw8JoVsCmeul0wsoIcJKRPV0HtEFUlNvNg6C3wyGj8R1utPbw+Iz8tqAdpbxR1nSvr+ILXPG==",
+// Device model of the Peripheral, to calibrate distance estimates
+"mp": "Samsung S8",
+// Organisation code indicating the country and health authority with which the Peripheral is enrolled
+"o": "SG_MOH",
+// Version of the BlueTrace protocol that the Peripheral is running
+"v": 2
+}

@@ -28,6 +28,14 @@ gem 'coffee-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'dry-validation', '~> 1.2'
+gem 'dry-struct',     '~> 1.0'
+gem 'dry-monads',     '~> 1.2'
+gem 'dry-matcher',    '~> 0.7'
+
+# gem 'call_center',        git:  'https://github.com/ideacrew/call_center.git', branch: 'master'
+# gem 'resource_registry',  git:  'https://github.com/ideacrew/resource_registry.git', branch: 'branch_0.7.0'
+
 gem 'fat_free_crm', :git => 'https://github.com/ideacrew/fat_free_crm.git', branch: 'bootstrap-integration'
 gem 'symmetric-encryption'
 

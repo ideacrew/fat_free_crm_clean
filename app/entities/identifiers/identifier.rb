@@ -37,7 +37,7 @@ module Identifiers
     # The data type for this identifier (e.g. Uuid, Integer, String)
     #   to use for validation
     # @return [CovidMost::Types::IdIdentifier]
-    attribute :kind,                    CovidMost::Types::IdentifierKind.meta(omittable: false)
+    attribute :kind,                    Types::IdentifierKind.meta(omittable: false)
 
     # @!attribute [r] source_key
     # Reference to the organization that issued the identifier

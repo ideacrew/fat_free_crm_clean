@@ -8,8 +8,8 @@ module BlueTrace
     attribute :time_start,  Types::DateTime.meta(omittable: false)
     attribute :time_end,    Types::DateTime.meta(omittable: false)
 
-    attribute :central_messages,    Types::Array.of(BlueTrace::CentralEncounterMessages)
-    attribute :peripheral_messages, Types::Array.of(BlueTrace::PeripheralEncounterMessages)
+    attribute :central_messages,    Types::Array.of(BlueTrace::CentralEncounterMessage)
+    attribute :peripheral_messages, Types::Array.of(BlueTrace::PeripheralEncounterMessage)
 
   end
 end

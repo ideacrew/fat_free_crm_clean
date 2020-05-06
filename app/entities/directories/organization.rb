@@ -10,8 +10,8 @@ module Directories
     attribute :addresses,         Types::Array.of(Locations::Address).meta(omittable: false)
     attribute :status,            CovidMost::Types::OrganizationStatus.meta(omittable: false)
     attribute :email,             CovidMost::Types::Email
-    attribute :web_site
-    attribute :legal_entity
+    attribute :web_site,          Types::String
+    attribute :legal_entity,      Types::String
 
     # Organization code indicating the country and health authority with which the Peripheral is enrolled
     #   (used for BlueTrace ID and other purposes)

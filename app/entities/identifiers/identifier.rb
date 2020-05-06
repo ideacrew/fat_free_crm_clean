@@ -26,7 +26,7 @@ module Identifiers
     description:  "Contact's mobile phone number in E.164 format"
   }
 
-  class BlueTraceTempId < Dry::Struct
+  class Identifier < Dry::Struct
 
     # @!attribute [r] key_name
     # Unique key for this identifier type

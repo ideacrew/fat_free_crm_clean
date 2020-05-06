@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
-module Operations
-  module Graphs
+module Graphs
 
-    # Initialize a new Node instance
-    class AddNode
-    end
-
+  # Initialize a new Node instance
+  class AddNode
   end
+
 end
+

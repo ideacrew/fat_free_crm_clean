@@ -10,7 +10,7 @@ module CovidMost
 
     IdentifierKind      = Types::Coercible::Symbol.default(:string).enum(:string, :integer, :uuid, :phone_number)
 
-    OrganizationAddress = Types::Coercible::Symbol.default(:headquarters).enum(:billing, :shipping, :satellite, :headquarters)
+    OrganizationStatus = Types::Coercible::Symbol.default(:headquarters).enum(:billing, :shipping, :satellite, :headquarters)
     ContactAddress      = Types::Coercible::Symbol.default(:home).enum(:billing, :shipping, :work, :home)
 
     # E.164 Standard

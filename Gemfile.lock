@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ideacrew/fat_free_crm.git
-  revision: e39fb92bc242e63f336c08fde8ae259071973bbc
+  revision: 0a511f8dd56492a4eae5bb4030cfef8680f6582a
   branch: bootstrap-integration
   specs:
     fat_free_crm (0.19.0)
@@ -44,19 +44,25 @@ GIT
 
 GIT
   remote: https://github.com/ideacrew/resource_registry.git
-  revision: 66ee7bc7885d9579c499abf485f3a8b192b22bc0
+  revision: 8593064c8e19f5de352e7e016f8c3d8bdd30c7f5
   branch: branch_0.7.0
   specs:
     resource_registry (0.7.0)
-      deep_merge (~> 1.2.1)
+      bootsnap (~> 1.0)
+      deep_merge (>= 1.0.0)
+      dry-configurable (= 0.9)
+      dry-container (~> 0.7)
       dry-matcher (~> 0.7)
       dry-monads (~> 1.2)
       dry-struct (~> 1.0)
+      dry-types (~> 1.0)
       dry-validation (~> 1.2)
-      i18n (~> 1.6)
+      i18n (>= 0.7.0)
       loofah (>= 2.3.1)
-      nokogiri (>= 1.10.8)
-      rack (>= 2.0.8)
+      mime-types
+      nokogiri (>= 1.9.1)
+      ox (~> 2.0)
+      rack (>= 1.6.13)
 
 GEM
   remote: https://rubygems.org/
@@ -129,8 +135,8 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.0)
     aws-eventstream (1.1.0)
-    aws-partitions (1.308.0)
-    aws-sdk-core (3.94.0)
+    aws-partitions (1.309.0)
+    aws-sdk-core (3.94.1)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
       aws-sigv4 (~> 1.1)
@@ -138,7 +144,7 @@ GEM
     aws-sdk-kms (1.30.0)
       aws-sdk-core (~> 3, >= 3.71.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.63.0)
+    aws-sdk-s3 (1.63.1)
       aws-sdk-core (~> 3, >= 3.83.0)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.1)
@@ -194,10 +200,9 @@ GEM
       devise (>= 2.1.0)
     diff-lcs (1.3)
     docile (1.3.2)
-    dry-configurable (0.11.5)
+    dry-configurable (0.9.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.4, >= 0.4.7)
-      dry-equalizer (~> 0.2)
     dry-container (0.7.2)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.1, >= 0.1.3)
@@ -296,6 +301,7 @@ GEM
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    ox (2.13.2)
     paper_trail (10.3.1)
       activerecord (>= 4.2)
       request_store (~> 1.1)
@@ -463,7 +469,7 @@ GEM
     unicode_utils (1.4.0)
     warden (1.2.8)
       rack (>= 2.0.6)
-    web-console (4.0.1)
+    web-console (4.0.2)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
@@ -488,6 +494,10 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails
+  dry-matcher (~> 0.7)
+  dry-monads (~> 1.2)
+  dry-struct (~> 1.0)
+  dry-validation (~> 1.2)
   fat_free_crm!
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
@@ -511,4 +521,4 @@ RUBY VERSION
    ruby 2.6.5p114
 
 BUNDLED WITH
-   2.1.4
+   2.1.2

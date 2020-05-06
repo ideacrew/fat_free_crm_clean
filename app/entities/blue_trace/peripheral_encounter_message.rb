@@ -14,22 +14,22 @@ module BlueTrace
     # @!attribute [r] id
     # TempID of the Peripheral Message
     # @return [String]
-    attribute :id,  Type::Strict::String.meta(omittable: false)
+    attribute :id,  Types::Strict::String.meta(omittable: false)
 
     # @!attribute [r] mp
     # Device model of the Peripheral, to calibrate distance estimates
     # @return [String]
-    attribute :mp,  Type::Strict::String.meta(omittable: false)
+    attribute :mp,  Types::Strict::String.meta(omittable: false)
 
     # @!attribute [r] o
     # Organization code indicating the country and health authority with which the Peripheral is enrolled
     # @return [String]
-    attribute :o,  Type::Strict::String.meta(omittable: false)
+    attribute :o,  Types::Strict::String.meta(omittable: false)
 
     # @!attribute [r] v
     # Version of the BlueTrace protocol that the Peripheral is running
     # @return [String]
-    attribute :v,  Type::Strict::String.meta(omittable: false)
+    attribute :v,  Types::Strict::String.meta(omittable: false)
 
   end
 end

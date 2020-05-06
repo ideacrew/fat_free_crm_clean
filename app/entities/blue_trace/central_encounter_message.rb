@@ -14,27 +14,27 @@ module BlueTrace
     # @!attribute [r] id
     # TempID of the Central Message
     # @return [String]
-    attribute :id,  Type::Strict::String.meta(omittable: false)
+    attribute :id,  Types::Strict::String.meta(omittable: false)
 
     # @!attribute [r] mc
     # Device model of the Central, to calibrate distance estimates
     # @return [String]
-    attribute :mc,  Type::Strict::String.meta(omittable: false)
+    attribute :mc,  Types::Strict::String.meta(omittable: false)
 
     # @!attribute [r] rs
     # Received Signal Strength Indicator (RSSI) as measured by the Central of the Peripheral
     # @return [String]
-    attribute :rs,  Type::Strict::String.meta(omittable: false)
+    attribute :rs,  Types::Strict::String.meta(omittable: false)
 
     # @!attribute [r] o
     # Organization code indicating the country and health authority with which the Central is enrolled
     # @return [String]
-    attribute :o,  Type::Strict::String.meta(omittable: false)
+    attribute :o,  Types::Strict::String.meta(omittable: false)
 
     # @!attribute [r] v
     # Version of the BlueTrace protocol that the Central is running
     # @return [String]
-    attribute :v,  Type::Strict::String.meta(omittable: false)
+    attribute :v,  Types::Strict::String.meta(omittable: false)
 
   end
 end

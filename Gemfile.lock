@@ -315,6 +315,10 @@ GEM
     parser (2.7.1.2)
       ast (~> 2.4.0)
     pg (1.2.3)
+    phony (2.18.12)
+    phony_rails (0.14.13)
+      activesupport (>= 3.0)
+      phony (> 2.15)
     polyamorous (2.3.2)
       activerecord (>= 5.2.1)
     premailer (1.11.1)
@@ -502,6 +506,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   pg
+  phony_rails
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.2)
   resource_registry!

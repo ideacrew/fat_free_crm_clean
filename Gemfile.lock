@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ideacrew/fat_free_crm.git
-  revision: 9e6c8a75708cc2b9491a3f4624feffb01e83bcdd
+  revision: 761b9fddf355fa2a108415132f9e3077f7af34da
   branch: bootstrap-integration
   specs:
     fat_free_crm (0.19.0)

@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-module FatFreeCrm
+module Crm
   class LeadEntity < Dry::Struct
 
     attribute  :user_id,                 Types::Integer.optional.meta(omittable: true)

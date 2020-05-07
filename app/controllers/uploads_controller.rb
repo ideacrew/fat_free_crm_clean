@@ -1,9 +1,9 @@
-class FatFreeCrmsController < ApplicationController
+class UploadsController < ApplicationController
 
   def upload_lead
     if upload_file_type.include?(file_content_type)
       params.permit!
-      result = FatFreeCrm::Leads::UploadLeads.new.call(params.to_h)
+      result = Crm::Leads::UploadLeads.new.call(params.to_h)
       if result.success?
         flash[:notice] = 'Successfully uploaded Leads'
       else
@@ -18,7 +18,7 @@ class FatFreeCrmsController < ApplicationController
   def upload_contact
     if upload_file_type.include?(file_content_type)
       params.permit!
-      result = FatFreeCrm::Contacts::UploadContacts.new.call(params.to_h)
+      result = Crm::Contacts::UploadContacts.new.call(params.to_h)
 
       if result.success?
         flash[:notice] = 'Successfully uploaded Contacts'

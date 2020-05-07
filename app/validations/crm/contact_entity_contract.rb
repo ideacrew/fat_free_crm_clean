@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module FatFreeCrm
+module Crm
 
-  # Schema and validation rules for the {CovidMost::FatFreeCrm::UploadContact} operation
+  # Schema and validation rules for the {CovidMost::Crm::UploadContact} operation
   class ContactEntityContract < ApplicationContract
 
     # @!method call(opts)

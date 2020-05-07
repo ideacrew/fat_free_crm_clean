@@ -2,22 +2,22 @@
 require 'dry/monads'
 require 'dry/monads/do'
 
-module FatFreeCrm
-  module Leads
-    class CreateLeadEntity
+module Crm
+  module Contacts
+    class CreateContactEntity
       send(:include, Dry::Monads[:result, :do])
 
       def call(params)
-        lead    = yield create(params)
+        contact    = yield create(params)
 
-        Success(lead)
+        Success(contact)
       end
 
       private
 
       def create(params)
-        lead = ::FatFreeCrm::LeadEntity.new(params)
-        Success(lead)
+        contact = ::Crm::ContactEntity.new(params)
+        Success(contact)
       end
     end
   end

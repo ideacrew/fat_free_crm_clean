@@ -29,6 +29,12 @@ services:
       - AWS_S3_ROOT_NAMESPACE=${AWS_S3_ROOT_NAMESPACE:-root_bucket}
       - AWS_BUCKET_ROOT_NAMESPACE=${AWS_BUCKET_ROOT_NAMESPACE:-root_bucket}
       - AWS_CONNECT_INSTANCE_ID=${AWS_CONNECT_INSTANCE_ID:-123456789}
+      - ACTION_MAILER_HOST=${ACTION_MAILER_HOST:-localhost}
+      - SMTP_PORT=${SMTP_PORT:-587}
+      - SMTP_HOST=${SMTP_HOST:-localhost}
+      - SMTP_DOMAIN=${SMTP_DOMAIN:-ideacrew.com}
+      - SMTP_USERNAME=${SMTP_USERNAME:-username}
+      - SMTP_PASSWORD=${SMTP_PASSWORD:-password}
     command: bash -c "rm -f tmp/pids/server.pid && mkdir -p tmp/pids && yarn install --check-files && bundle exec rails assets:precompile && bundle exec puma -C config/puma.rb"
   db:
     image: postgres:12

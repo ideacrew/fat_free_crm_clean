@@ -1,4 +1,18 @@
 GIT
+  remote: https://github.com/ideacrew/call_center.git
+  revision: c27da09cbe9f04d95fa6890bc3f0c9588b793671
+  branch: master
+  specs:
+    call_center (0.1.0)
+      aws-sdk-connect (~> 1.0)
+      dry-matcher (~> 0.7)
+      dry-monads (~> 1.2)
+      dry-struct (~> 1.0)
+      dry-validation (~> 1.2)
+      i18n (~> 1.6)
+      rails (>= 6.0)
+
+GIT
   remote: https://github.com/ideacrew/fat_free_crm.git
   revision: 35dc16b6aec2ca9fa59845793c03523a5e09a7ef
   branch: bootstrap-integration
@@ -140,6 +154,9 @@ GEM
       multi_json (>= 1.0.0)
     aws-eventstream (1.1.0)
     aws-partitions (1.310.0)
+    aws-sdk-connect (1.24.0)
+      aws-sdk-core (~> 3, >= 3.71.0)
+      aws-sigv4 (~> 1.1)
     aws-sdk-core (3.94.1)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
@@ -554,6 +571,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
+  call_center!
   capybara
   coffee-rails
   dry-matcher (~> 0.7)

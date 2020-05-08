@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module FatFreeCrm
+module Crm
 
-  # Schema and validation rules for the {CovidMost::FatFreeCrm::UploadLead} operation
+  # Schema and validation rules for the {CovidMost::Crm::UploadLead} operation
   class LeadEntityContract < ApplicationContract
 
     # @!method call(opts)

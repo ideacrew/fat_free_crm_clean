@@ -2,9 +2,9 @@
 require 'dry/monads'
 require 'dry/monads/do'
 
-module FatFreeCrm
-  module Leads
-    class UploadLeads
+module Crm
+  module Contacts
+    class UploadContacts
       send(:include, Dry::Monads[:result, :do])
 
       def call(params)
@@ -31,32 +31,32 @@ module FatFreeCrm
       end
 
       def validate(data_set)
-        leads = data_set.collect do |data|
-          ::FatFreeCrm::LeadEntityContract.new.call(data)
+        contacts = data_set.collect do |data|
+          ::Crm::ContactEntityContract.new.call(data)
         end
 
-        if leads.none?(&:failure?)
-          Success(leads.map(&:values))
+        if contacts.none?(&:failure?)
+          Success(contacts.map(&:values))
         else
-          Failure(leads.collect{|lead| lead.errors if lead&.failure? }.compact)
+          Failure(contacts.collect{|contact| contact.errors if contact&.failure? }.compact)
         end
       end
 
       def create_entities(values)
-        leads = values.collect do |value|
-            ::FatFreeCrm::Leads::CreateLeadEntity.new.call(value.to_h)
+        contacts = values.collect do |value|
+            ::Crm::Contacts::CreateContactEntity.new.call(value.to_h)
         end
-
-        Success(leads.map(&:value!))
+        
+        Success(contacts.map(&:value!))
       end
 
       def create(entities)
-        leads = entities.collect do |entity|
-          lead = Lead.new(entity.to_h.compact!)
-          lead.save!
+        contacts = entities.collect do |entity|
+          contact = Contact.new(entity.to_h.compact!)
+          contact.save!
         end
 
-        Success(leads)
+        Success(contacts)
       end
     end
   end

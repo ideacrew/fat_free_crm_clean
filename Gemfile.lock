@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ideacrew/call_center.git
-  revision: c27da09cbe9f04d95fa6890bc3f0c9588b793671
+  revision: dd663979b8936b20a74cb98c64e954d792e1e235
   branch: master
   specs:
     call_center (0.1.0)
@@ -10,7 +10,7 @@ GIT
       dry-struct (~> 1.0)
       dry-validation (~> 1.2)
       i18n (~> 1.6)
-      rails (>= 6.0)
+      rails (>= 5.2.4)
 
 GIT
   remote: https://github.com/ideacrew/fat_free_crm.git
@@ -153,11 +153,11 @@ GEM
       extlib (>= 0.9.15)
       multi_json (>= 1.0.0)
     aws-eventstream (1.1.0)
-    aws-partitions (1.310.0)
+    aws-partitions (1.312.0)
     aws-sdk-connect (1.24.0)
       aws-sdk-core (~> 3, >= 3.71.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-core (3.94.1)
+    aws-sdk-core (3.95.0)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
       aws-sigv4 (~> 1.1)

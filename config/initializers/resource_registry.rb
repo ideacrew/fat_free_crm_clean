@@ -66,8 +66,8 @@ if registry.feature_enabled?(:boot)
 
     if feature.success?
       registry.register_feature(feature.value!)
-    else
-      raise feature.errors.to_s
+    # else
+    #   raise feature.failure
     end
   end
 end

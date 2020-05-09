@@ -44,9 +44,9 @@ env_vars.each do |feature_key, parts|
   missing_vars = parts[:settings].select{|var| env_settings.fetch(var).blank? }
 
   # TODO - Enable it after addressing the environment variables issues with docker containers
-  if missing_vars.present?
-    raise StandardError, "missing required environment variables #{missing_vars}"
-  end
+  # if missing_vars.present?
+  #   raise StandardError, "missing required environment variables #{missing_vars}"
+  # end
 
   # Create and register the application feature with environment variables
   feature  = ResourceRegistry::Feature.new({
@@ -59,17 +59,17 @@ env_vars.each do |feature_key, parts|
   registry.register_feature(feature)
 end
 
-# if registry.feature_enabled?(:boot)
-#   requested_services = registry[:boot].setting(:services).item
-#   requested_services.each do |service|
-#     feature = registry[:boot] { service }
+if registry.feature_enabled?(:boot)
+  requested_services = registry[:boot].setting(:services).item
+  requested_services.each do |service|
+    feature = registry[:boot] { service }
 
-#     if feature.success?
-#       registry.register_feature(feature.value!)
-#     else
-#       raise feature.errors.to_s
-#     end
-#   end
-# end
+    if feature.success?
+      registry.register_feature(feature.value!)
+    else
+      raise feature.errors.to_s
+    end
+  end
+end
 
 

@@ -11,10 +11,10 @@ registry:
         settings:
         - key: :services
           item:
-          - :smtp_service
+          # - :smtp_service
           - :call_center
-          - :doc_store
-          - :sns_service
+          # - :doc_store
+          # - :sns_service
         - key: :start
           item: 'operations/services/start'
         - key: :stop

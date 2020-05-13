@@ -37,9 +37,6 @@ gem 'dry-struct',     '~> 1.0'
 gem 'dry-monads',     '~> 1.2'
 gem 'dry-matcher',    '~> 0.7'
 
-gem 'call_center',        git:  'https://github.com/ideacrew/call_center.git', branch: 'master'
-
-gem 'fat_free_crm', :git => 'https://github.com/ideacrew/fat_free_crm.git', branch: 'bootstrap-integration'
 gem 'roo',              '~> 2.8', '>= 2.8.3'
 gem 'roo-google',       '~> 1.0'
 

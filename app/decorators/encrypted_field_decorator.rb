@@ -1,9 +1,3 @@
-puts FatFreeCrm::Permissions.inspect
-puts FatFreeCrm::CommentExtensions.inspect
-puts FatFreeCrm::Fields.inspect
-puts FatFreeCrm::Exportable.inspect
-puts FatFreeCrm::Sortable.inspect
-
 module EncryptedFieldDecorator
   class Engine < ::Rails::Engine
     paths["app/models"] << "app/models/fields/"

@@ -5,18 +5,18 @@ module PhoneFieldDecorator
   end
 end
 
-class Contact
+class FatFreeCrm::Contact
   include PhoneFieldDecorator
 end
 
-class Lead
+class FatFreeCrm::Lead
   include PhoneFieldDecorator
 end
 
-class User
+class FatFreeCrm::User
   include PhoneFieldDecorator
 end
 
-class Account
+class FatFreeCrm::Account
   include PhoneFieldDecorator
 end

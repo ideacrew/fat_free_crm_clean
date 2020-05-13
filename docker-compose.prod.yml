@@ -5,12 +5,12 @@ services:
       context: .
       target: web
       dockerfile: ./.docker/production/Dockerfile
-    image: ideacrew/covid_most_web:rc-0.0.1
+    image: ideacrew/covid_most_web:${IMAGE_TAG} 
     depends_on:
       - app
     ports:
-      - '80:80'
-      - '443:443'
+      - "${HTTP_PORT:-80}:80"
+      - "443:443"
     tmpfs:
       - /tmp
     secrets:
@@ -20,73 +20,103 @@ services:
                     cat /run/secrets/ssl_key > /etc/ssl/ssl_key.pem &&
                     sleep 10 &&
                     nginx -g "daemon off;"'
-
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 10s
+        failure_action: rollback
+      restart_policy:
+        max_attempts: 20
+        window: 30m
   app:
     build:
       context: .
-      target: web
+      target: app
       dockerfile: ./.docker/production/Dockerfile
       args:
-        - DB_DATABASE=${DB_DATABASE}
-        - DB_USERNAME=${DB_USERNAME}
-        - DB_PASSWORD=${DB_PASSWORD}
-        - DB_HOST=${DB_HOST}
-    image: ideacrew/covid_most_app:rc-0.0.1
+        - DB_DATABASE=${DB_DATABASE:-covid_most_development}
+        - DB_USERNAME=${DB_USERNAME:-postgres}
+        - DB_PASSWORD=${DB_PASSWORD:-postgres_local}
+        - DB_HOST=${DB_HOST:-db}
+    image: ideacrew/covid_most_app:${IMAGE_TAG}
     depends_on:
       - db
     ports:
-      - "3000"
-    volumes:
-      - rails_cache:/covid_most/tmp/cache
-      - bundle:/bundle
-      - node_modules:/covid_most/node_modules
-      - packs:/covid_most/public/packs
+      - "${RAILS_PORT:-3000}"
     environment:
       - RAILS_ENV=production
-      - DB_DATABASE=${DB_DATABASE}
-      - DB_USERNAME=${DB_USERNAME}
-      - DB_PASSWORD=${DB_PASSWORD}
-      - DB_HOST=${DB_HOST}
+      - DB_DATABASE=${DB_DATABASE:-covid_most_development}
+      - DB_USERNAME=${DB_USERNAME:-postgres}
+      - DB_PASSWORD=${DB_PASSWORD:-postgres_local}
+      - DB_HOST=${DB_HOST:-db}
       - DB_PORT=5432
-      - ACTION_MAILER_HOST=${ACTION_MAILER_HOST}
-      - SMTP_PORT=${SMTP_PORT}
-      - SMTP_HOST=${SMTP_HOST}
-      - SMTP_DOMAIN=${SMTP_DOMAIN}
-      - SMTP_USERNAME=${SMTP_USERNAME}
-      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      - ACTION_MAILER_HOST=${ACTION_MAILER_HOST:-localhost}
+      - SMTP_PORT=${SMTP_PORT:-587}
+      - SMTP_HOST=${SMTP_HOST:-localhost}
+      - SMTP_DOMAIN=${SMTP_DOMAIN:-ideacrew.com}
+      - SMTP_USERNAME=${SMTP_USERNAME:-username}
+      - SMTP_PASSWORD=${SMTP_PASSWORD:-password}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID:-AKIA123456789}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY:-AbcD987654321}
+      - AWS_REGION=${AWS_REGION:-us-east-1}
+      - AWS_S3_ROOT_NAMESPACE=${AWS_S3_ROOT_NAMESPACE:-root_bucket}
+      - AWS_BUCKET_ROOT_NAMESPACE=${AWS_BUCKET_ROOT_NAMESPACE:-root_bucket}
+      - AWS_CONNECT_INSTANCE_ID=${AWS_CONNECT_INSTANCE_ID:-123456789}
     secrets:
       - master_key
       - credentials
+      - symmetric_encryption_yml
+      - symmetric_encryption_encrypted_key
+      - symmetric_encryption_kekek
     command: bash -c "rm -f tmp/pids/server.pid && 
                       mkdir -p tmp/pids && 
                       cat /run/secrets/master_key > /covid_most/config/master.key &&
                       cat /run/secrets/credentials > /covid_most/config/credentials.yml.enc &&
+                      rm -f config/symmetric-encryption.yml &&
+                      rm -f .symmetric-encryption/symmetric-encryption_production_v1.encrypted_key &&
+                      rm -f .symmetric-encryption/symmetric-encryption_production_v1.kekek &&
+                      mkdir -p .symmetric-encryption &&
+                      cat /run/secrets/symmetric_encryption_yml > /covid_most/config/symmetric-encryption.yml &&
+                      cat /run/secrets/symmetric_encryption_encrypted_key > /covid_most/.symmetric-encryption/symmetric-encryption_production_v1.encrypted_key &&
+                      cat /run/secrets/symmetric_encryption_kekek > /covid_most/.symmetric-encryption/symmetric-encryption_production_v1.kekek &&
+                      chmod 400 /covid_most/.symmetric-encryption/symmetric-encryption_production_v1.encrypted_key &&
+                      chmod 400 /covid_most/.symmetric-encryption/symmetric-encryption_production_v1.kekek &&
                       bundle exec puma -C config/puma.rb"
-
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 10s
+        failure_action: rollback
+      restart_policy:
+        max_attempts: 20
+        window: 30m
   db:
     image: postgres:12
     restart: always
     ports:
-      - "5432"
+      - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     environment:
-      - POSTGRES_PASSWORD=${DB_ROOT_PASSWORD}
+      - POSTGRES_PASSWORD=${DB_ROOT_PASSWORD:-postgres_local} 
 
 volumes:
   pgdata: 
-  rails_app:
-  rails_cache:
-  bundle:
-  node_modules:
-  packs:
 
 secrets: 
   master_key:
-    file: ./config/master.key
+    file: ../covid_most_config/master.key
   credentials:
-    file: ./config/credentials.yml.enc
+    file: ../covid_most_config/credentials.yml.enc
   ssl_cert:
     file: ../covid_most_config/fullchain.pem
   ssl_key:
     file: ../covid_most_config/privkey.pem
+  symmetric_encryption_yml:
+    file: ../covid_most_config/symmetric-encryption.yml
+  symmetric_encryption_encrypted_key:
+    file: ../covid_most_config/symmetric-encryption_production_v1.encrypted_key
+  symmetric_encryption_kekek:
+    file: ../covid_most_config/symmetric-encryption_production_v1.kekek  

@@ -9,7 +9,7 @@ RUN mkdir -p $HOME
 
 WORKDIR $HOME
 
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 
 # Configure bundler and PATH
 ENV LANG=C.UTF-8 \

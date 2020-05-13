@@ -23,6 +23,18 @@ services:
       - DB_PASSWORD=postgres_local
       - DB_HOST=db
       - DB_PORT=5432
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID:-AKIA123456789}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY:-AbcD987654321}
+      - AWS_REGION=${AWS_REGION:-us-east-1}
+      - AWS_S3_ROOT_NAMESPACE=${AWS_S3_ROOT_NAMESPACE:-root_bucket}
+      - AWS_BUCKET_ROOT_NAMESPACE=${AWS_BUCKET_ROOT_NAMESPACE:-root_bucket}
+      - AWS_CONNECT_INSTANCE_ID=${AWS_CONNECT_INSTANCE_ID:-123456789}
+      - ACTION_MAILER_HOST=${ACTION_MAILER_HOST:-localhost}
+      - SMTP_PORT=${SMTP_PORT:-587}
+      - SMTP_HOST=${SMTP_HOST:-localhost}
+      - SMTP_DOMAIN=${SMTP_DOMAIN:-ideacrew.com}
+      - SMTP_USERNAME=${SMTP_USERNAME:-username}
+      - SMTP_PASSWORD=${SMTP_PASSWORD:-password}
     command: bash -c "rm -f tmp/pids/server.pid && mkdir -p tmp/pids && yarn install --check-files && bundle exec rails assets:precompile && bundle exec puma -C config/puma.rb"
   db:
     image: postgres:12

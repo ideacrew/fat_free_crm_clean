@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+	<head>
+     <%= javascript_pack_tag "amazon-connect" %>
+	</head>
+	<!-- Add the call to init() as an onload so it will only run once the page is loaded -->
+	<body onload="init()">
+		<div id=containerDiv style="width: 300px;height: 450px;"></div>
+		<script type="text/javascript">
+			// const instanceURL = "https://demo-covid.awsapps.com/connect/ccp-v2/softphone";
+			const instanceURL = "https://demo-covid.awsapps.com/connect/ccp#";
+
+			// initialise the streams api
+			function init(){
+				// initialize the ccp
+				connect.core.initCCP(containerDiv, {
+					ccpUrl: instanceURL,			/*REQUIRED*/
+					loginPopup: true,			/*optional, default TRUE*/
+					region: "us-east-1",			/*REQUIRED for chat, optional otherwise*/
+					softphone: {				/*optional*/
+						allowFramedSoftphone: true,	/*optional*/
+						disableRingtone: false,		/*optional*/
+						ringtoneUrl: "./ringtone.mp3"	/*optional*/
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

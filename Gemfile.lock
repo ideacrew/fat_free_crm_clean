@@ -14,7 +14,7 @@ GIT
 
 GIT
   remote: https://github.com/ideacrew/fat_free_crm.git
-  revision: 57988270a681d6371db867598cf5f895e271171d
+  revision: 582a2ff76ba24fb2e763c19ff38d86ddad6c70f5
   branch: isolate_ui_update_merge
   specs:
     fat_free_crm (0.19.0)

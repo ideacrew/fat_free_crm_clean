@@ -1,6 +1,8 @@
-class ConnectStreamsController < ApplicationController
+class ConnectStreamsController < FatFreeCrm::ApplicationController
+	before_action :authenticate_user!
+	layout false, :only => [:connect]
 
-  def index
+  def connect
   end
 
 	private

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'connect_streams/index'
+  get 'connect_streams/connect'
 
   post 'uploads/upload_lead'
   post 'uploads/upload_contact'

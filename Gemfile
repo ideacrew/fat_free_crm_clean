@@ -29,7 +29,7 @@ gem 'coffee-rails'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'call_center', git:  'https://github.com/ideacrew/call_center.git', branch: 'master'
-gem 'fat_free_crm', :git => 'https://github.com/ideacrew/fat_free_crm.git', branch: 'isolate_ui_update_merge'
+gem 'fat_free_crm', :git => 'https://github.com/ideacrew/fat_free_crm.git', branch: 'master'
 gem 'symmetric-encryption'
 
 gem 'dry-validation', '~> 1.2'

@@ -40,7 +40,6 @@ gem 'dry-matcher',    '~> 0.7'
 gem 'roo',              '~> 2.8', '>= 2.8.3'
 gem 'roo-google',       '~> 1.0'
 
-gem 'symmetric-encryption'
 gem 'simplecov', require: false, group: :test
 gem 'resource_registry',  git:  'https://github.com/ideacrew/resource_registry.git', branch: 'branch_0.7.0'
 gem 'phony_rails'

@@ -14,7 +14,7 @@ GIT
 
 GIT
   remote: https://github.com/ideacrew/fat_free_crm.git
-  revision: f3b628c0e319058a3eefd14af40dd5dd94f46936
+  revision: 3fc11805cf842508be3d60a400ea4e8c9750cce3
   branch: master
   specs:
     fat_free_crm (0.19.0)

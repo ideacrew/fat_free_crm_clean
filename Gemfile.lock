@@ -10,7 +10,7 @@ GIT
       dry-struct (~> 1.0)
       dry-validation (~> 1.2)
       i18n (~> 1.6)
-      rails (>= 6.0)
+      rails (>= 5.2.4)
 
 GIT
   remote: https://github.com/ideacrew/fat_free_crm.git
@@ -360,7 +360,9 @@ GEM
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2020.0512)
-    mimemagic (0.3.5)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.0)
@@ -481,7 +483,7 @@ GEM
       railties (>= 5.0)
     responds_to_parent (1.1.0)
     retriable (1.4.1)
-    rexml (3.2.4)
+    rexml (3.2.5)
     rmagick (4.1.2)
     roo (2.8.3)
       nokogiri (~> 1)

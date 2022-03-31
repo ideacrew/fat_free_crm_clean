@@ -10,7 +10,7 @@ GIT
       dry-struct (~> 1.0)
       dry-validation (~> 1.2)
       i18n (~> 1.6)
-      rails (>= 6.0)
+      rails (>= 5.2.4)
 
 GIT
   remote: https://github.com/ideacrew/fat_free_crm.git
@@ -368,7 +368,7 @@ GEM
     multi_json (1.14.1)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
-    nio4r (2.5.2)
+    nio4r (2.5.8)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     oauth (0.5.4)
@@ -416,7 +416,7 @@ GEM
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
     public_suffix (4.0.4)
-    puma (4.3.3)
+    puma (4.3.12)
       nio4r (~> 2.0)
     rack (2.2.2)
     rack-proxy (0.6.5)
@@ -641,7 +641,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   pry-stack_explorer
-  puma (~> 4.1)
+  puma (~> 4.3)
   rails (~> 6.0.2, >= 6.0.2.2)
   rails-i18n
   rails-observers

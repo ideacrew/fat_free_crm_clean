@@ -10,7 +10,7 @@ GIT
       dry-struct (~> 1.0)
       dry-validation (~> 1.2)
       i18n (~> 1.6)
-      rails (>= 6.0)
+      rails (>= 5.2.4)
 
 GIT
   remote: https://github.com/ideacrew/fat_free_crm.git
@@ -332,7 +332,7 @@ GEM
     jaro_winkler (1.5.4)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
-    jmespath (1.4.0)
+    jmespath (1.6.1)
     jquery-migrate-rails (1.2.1)
     jquery-rails (4.4.0)
       rails-dom-testing (>= 1, < 3)

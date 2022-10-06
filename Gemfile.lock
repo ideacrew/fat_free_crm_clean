@@ -10,7 +10,7 @@ GIT
       dry-struct (~> 1.0)
       dry-validation (~> 1.2)
       i18n (~> 1.6)
-      rails (>= 6.0)
+      rails (>= 5.2.4)
 
 GIT
   remote: https://github.com/ideacrew/fat_free_crm.git
@@ -153,8 +153,8 @@ GEM
     acts_as_commentable (4.0.2)
     acts_as_list (1.0.1)
       activerecord (>= 4.2)
-    addressable (2.7.0)
-      public_suffix (>= 2.0.2, < 5.0)
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.0)
     autoparse (0.3.3)
       addressable (>= 2.3.1)
@@ -415,7 +415,7 @@ GEM
     pry-stack_explorer (0.4.9.3)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
-    public_suffix (4.0.4)
+    public_suffix (5.0.0)
     puma (4.3.3)
       nio4r (~> 2.0)
     rack (2.2.2)

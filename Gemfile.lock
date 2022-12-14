@@ -10,7 +10,7 @@ GIT
       dry-struct (~> 1.0)
       dry-validation (~> 1.2)
       i18n (~> 1.6)
-      rails (>= 6.0)
+      rails (>= 5.2.4)
 
 GIT
   remote: https://github.com/ideacrew/fat_free_crm.git
@@ -348,7 +348,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.5.0)
+    loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
